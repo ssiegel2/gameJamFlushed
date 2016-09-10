@@ -24,20 +24,30 @@ public class NPCFollowController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         //npc follows player if in range
+        Debug.Log(objsInRadius.Count);
         if (followingPlayer) {
             float step = moveSpeed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
+            Vector2 moveToPlayer = Vector2.MoveTowards(transform.position, player.transform.position, step);
+            transform.position = moveToPlayer;
+            circle.transform.position = moveToPlayer;
         }
 	}
 
     //checks if the player is within the npc's sight
     void OnTriggerEnter2D(Collider2D coll){
-        followingPlayer = coll.gameObject.name == "player";
+        if(coll.gameObject.name == "player") {
+            followingPlayer = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D coll) {
-        followingPlayer = false;
-        rigidBody.velocity = new Vector2(0, 0);
+        
+        if(coll.gameObject.name == "player") {
+            followingPlayer = false;
+            rigidBody.velocity = new Vector2(0, 0);
+        }
+
     }
 }
