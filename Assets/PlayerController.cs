@@ -29,10 +29,6 @@ public class PlayerController : MonoBehaviour {
         else{
             rigidBody.AddForce(-rigidBody.velocity.normalized * friction);
         }
-
-
-
-        Debug.Log("Acceleration: " + acceleration.magnitude + ", Velocity: " + rigidBody.velocity);
     }
 
 
