@@ -233,7 +233,7 @@ GameObject:
   - 4: {fileID: 188725344}
   - 114: {fileID: 188725343}
   m_Layer: 0
-  m_Name: UIHandler
+  m_Name: UIObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
     m_Font: {fileID: 0}
     m_FontSize: 0
     m_FontStyle: 0
-    m_Alignment: 0
+    m_Alignment: 4
     m_WordWrap: 0
     m_RichText: 1
     m_TextClipping: 0
@@ -612,7 +612,7 @@ Transform:
   m_LocalScale: {x: 4.22503567, y: 6.31182051, z: 1}
   m_Children: []
   m_Father: {fileID: 2042820454}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1001 &649112571
 Prefab:
   m_ObjectHideFlags: 0
@@ -854,6 +854,7 @@ GameObject:
   - 212: {fileID: 1138094397}
   - 114: {fileID: 1138094396}
   - 61: {fileID: 1138094399}
+  - 114: {fileID: 1138094400}
   m_Layer: 0
   m_Name: testPlayerSprite
   m_TagString: Untagged
@@ -924,6 +925,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .319999993, y: .959999979}
+--- !u!114 &1138094400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138094395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692a21ff957c4443e80f1d697069e690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1213871250
 Prefab:
   m_ObjectHideFlags: 0
@@ -1239,6 +1251,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_IsPrefabParent: 0
+--- !u!1 &1648334054 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 124188, guid: 16f328a11f62a43cbb9b41f0904bca8d, type: 2}
+  m_PrefabInternal: {fileID: 1982945295}
+--- !u!114 &1648334058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1648334054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdfff29a86ff415e9de46a65975a642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1795221163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1279,7 @@ GameObject:
   - 92: {fileID: 1795221165}
   - 81: {fileID: 1795221164}
   - 114: {fileID: 1795221169}
+  - 114: {fileID: 1795221170}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1289,7 +1317,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: .0896549225, b: 1, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1342,6 +1370,17 @@ MonoBehaviour:
   lookAheadFactor: 3
   lookAheadReturnSpeed: .5
   lookAheadMoveThreshold: .100000001
+--- !u!114 &1795221170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1795221163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d90202d79c864688845d911363a4a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1823609199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,7 +1548,7 @@ Transform:
   m_LocalScale: {x: 1, y: .349999994, z: 1}
   m_Children: []
   m_Father: {fileID: 2042820454}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &1961091003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1641,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1976697404}
+  - 114: {fileID: 1976697405}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -1621,6 +1661,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1976697405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976697403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fd985443a7e4de78280d746cf8b111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lengthOfSafety: 2
 --- !u!4 &1980785522 stripped
 Transform:
   m_PrefabParentObject: {fileID: 471328, guid: a1c72cada517e408e84643b8948b70fd, type: 2}
@@ -1720,8 +1772,8 @@ Transform:
   - {fileID: 1382841508}
   - {fileID: 699698988}
   - {fileID: 941129557}
-  - {fileID: 1897062498}
   - {fileID: 639063542}
+  - {fileID: 1897062498}
   - {fileID: 1306823848}
   - {fileID: 1138094398}
   m_Father: {fileID: 0}
