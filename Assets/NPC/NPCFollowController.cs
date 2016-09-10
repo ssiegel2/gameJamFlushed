@@ -26,7 +26,6 @@ public class NPCFollowController : MonoBehaviour {
 	void Update () {
 
         //npc follows player if in range
-        Debug.Log(objsInRadius.Count);
         if (followingPlayer) {
             float step = moveSpeed * Time.deltaTime;
             Vector2 moveToPlayer = Vector2.MoveTowards(transform.position, player.transform.position, step);
