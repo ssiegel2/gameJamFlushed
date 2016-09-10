@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public float moveAmount = 20f;
     public float maxSpeed = 5f;
     public float friction = 5f;
+	public float movingFriction = 5f;
 
     Rigidbody2D rigidBody;
 	// Use this for initialization
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
         if (!noMove) {
             rigidBody.AddForce(acceleration);
             rigidBody.velocity = new Vector2(Mathf.Clamp(rigidBody.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rigidBody.velocity.y, -maxSpeed, maxSpeed));
+			rigidBody.AddForce(-rigidBody.velocity.normalized * movingFriction);
         }
         else{
             rigidBody.AddForce(-rigidBody.velocity.normalized * friction);
