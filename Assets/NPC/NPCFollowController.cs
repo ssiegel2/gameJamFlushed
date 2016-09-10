@@ -9,6 +9,7 @@ public class NPCFollowController : MonoBehaviour {
     bool followingPlayer = false;
 
     GameObject player;
+    Rigidbody2D rigidBody;
     CircleCollider2D circle;
 
 	// Use this for initialization
@@ -16,6 +17,7 @@ public class NPCFollowController : MonoBehaviour {
         player = GameObject.Find("player");
 
         circle = GetComponent<CircleCollider2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
         circle.radius = sightRadius;
 
 	}
@@ -36,5 +38,6 @@ public class NPCFollowController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D coll) {
         followingPlayer = false;
+        rigidBody.velocity = new Vector2(0, 0);
     }
 }
