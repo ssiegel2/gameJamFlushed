@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-        Debug.Log("Acceleration: " + acceleration.magnitude + ", Velocity: " + rigidBody.velocity);
+        //Debug.Log("Acceleration: " + acceleration.magnitude + ", Velocity: " + rigidBody.velocity);
     }
 
 
