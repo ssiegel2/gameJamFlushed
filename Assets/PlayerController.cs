@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour {
 	}
 	
     void FixedUpdate(){
-        float hMove = Input.GetAxis("Horizontal") * moveAmount;
-        float vMove = Input.GetAxis("Vertical") * moveAmount;
+        float hMove = Input.GetAxis("Horizontal");
+        float vMove = Input.GetAxis("Vertical");
         bool noMove = Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0;
 
+		Vector2 acceleration = new Vector2 (hMove, vMove).normalized * moveAmount;
+
         if (!noMove) {
-            rigidBody.AddForce(new Vector2(hMove, vMove));
+            rigidBody.AddForce(acceleration);
             rigidBody.velocity = new Vector2(Mathf.Clamp(rigidBody.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rigidBody.velocity.y, -maxSpeed, maxSpeed));
         }
         else{
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 
 
 
-        Debug.Log(rigidBody.velocity);
+        Debug.Log("Acceleration: " + acceleration.magnitude + ", Velocity: " + rigidBody.velocity);
     }
 
 
