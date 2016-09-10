@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CharacterDialogueTest : DialogueTest {
 
+	GameStateScript gameState;
+
 	void Decision1(int choice) {
 		if (choice == -1) {
 			conversation.NewChoice ("How are you? How are you? How are you? How are you? How are you?\n How are you? How are you? How are you?", "I'm great!", "I'm ok", "Oh Christ");
@@ -29,7 +31,9 @@ public class CharacterDialogueTest : DialogueTest {
 			conversation.NewChoice ("Why are you OK?",
 			                        "I'm always OK",
 			                        "I've forgotten how to do anything else",
-			                        "");
+			                        "BYE!");
+		} else if (choice == 3) {
+			gameState.Overworld ();
 		}
 	}
 
@@ -37,13 +41,22 @@ public class CharacterDialogueTest : DialogueTest {
 	// Call Initialize first, set current to the base of the current dialogue tree,
 	// Then call Current(-1) to start
 	void Start () {
-		Initialize ();
-		Current = Decision1;
-		Current (-1);
+		//initiated = false;
+		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Current (GetChoice ());
+		if (gameState.CurrentState () == "Dialogue" && initiated != true) {
+			Initialize ();
+			Current = Decision1;
+			Current (-1);
+		}
+		if (gameState.CurrentState () == "Overworld" && initiated == true) {
+			initiated = false;
+		}
+		if (initiated == true) {
+			Current (GetChoice ());
+		}
 	}
 }
