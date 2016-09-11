@@ -6,6 +6,7 @@ public class DisplayDialogueScript : MonoBehaviour {
 
 	GameStateScript gameState;
 
+
 	private class DialogueClass {
 		public string text;
 		public Rect rect;
@@ -61,6 +62,11 @@ public class DisplayDialogueScript : MonoBehaviour {
 	private ChoiceClass choice2;
 	private ChoiceClass choice3;
 
+	private Texture portrait;
+	private Rect portraitRect;
+
+	private bool monologue;
+
 	// Use this for initialization
 	void Start () {
 		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
@@ -73,6 +79,7 @@ public class DisplayDialogueScript : MonoBehaviour {
 
 	public void NewChoice (string words, string option1, string option2, string option3) {
 		dialogue = new DialogueClass (words);
+		monologue = false;
 
 		// Choice 1 and choice 2 are required. Choice 3 is optional. Max of 3 choices
 		choice1 = new ChoiceClass (option1, 1);
@@ -80,12 +87,35 @@ public class DisplayDialogueScript : MonoBehaviour {
 		choice3 = new ChoiceClass (option3, 3);
 	}
 
+	public void NewMonologue(string words) {
+		dialogue = new DialogueClass (words);
+
+		monologue = true;
+	}
+
+
+	public void SetPortrait (Texture pic) {
+		portrait = pic;
+
+		float height = Screen.height * .75f;
+		float width = height;
+		float x = (Screen.width  - width) / 2; 
+		float y = (Screen.height  - height) / 2 - Screen.height / 4f;
+		portraitRect = new Rect (x, y, width, height);
+	}
+
 	void OnGUI() {
 		if (gameState.CurrentState () == "Dialogue") {
+			GUI.Label (portraitRect, portrait, textStyle);
 			GUI.Label (dialogue.rect, dialogue.text, textStyle);
-			GUI.Label (choice1.rect, choice1.text, textStyle);
-			GUI.Label (choice2.rect, choice2.text, textStyle);
-			GUI.Label (choice3.rect, choice3.text, textStyle);
+			if (!monologue) {
+				GUI.Label (choice1.rect, choice1.text, textStyle);
+				GUI.Label (choice2.rect, choice2.text, textStyle);
+				GUI.Label (choice3.rect, choice3.text, textStyle);
+			} else {
+				// Center "..." where the choices would be
+				GUI.Label (new Rect(Screen.width / 2 - 25, Screen.height * 0.75f, 50, 20), "...", textStyle);
+			}
 		}
 	}
 }

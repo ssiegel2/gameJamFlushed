@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: b994b37d00435451a8cc8b33c73b0a58
+timeCreated: 1473632369
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: AUGGIE-Step2_0
+    21300002: AUGGIE-Step2_1
+    21300004: AUGGIE-Step2_2
+    21300006: AUGGIE-Step2_3
+    21300008: AUGGIE-Step2_4
+    21300010: AUGGIE-Step2_5
+    21300012: AUGGIE-Step2_6
+    21300014: AUGGIE-Step2_7
+    21300016: AUGGIE-Step2_8
+    21300018: AUGGIE-Step2_9
+    21300020: AUGGIE-Step2_10
+    21300022: AUGGIE-Step2_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: AUGGIE-Step2_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1560
+        width: 1132
+        height: 1550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_1
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 1560
+        width: 1147
+        height: 1560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_2
+      rect:
+        serializedVersion: 2
+        x: 2620
+        y: 1560
+        width: 1102
+        height: 1560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_3
+      rect:
+        serializedVersion: 2
+        x: 3912
+        y: 1572
+        width: 1065
+        height: 1548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_4
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 0
+        width: 1030
+        height: 1560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_5
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 0
+        width: 995
+        height: 1560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_6
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 1550
+        width: 28
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_7
+      rect:
+        serializedVersion: 2
+        x: 3920
+        y: 0
+        width: 1025
+        height: 1555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_8
+      rect:
+        serializedVersion: 2
+        x: 2707
+        y: 25
+        width: 1095
+        height: 1525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_9
+      rect:
+        serializedVersion: 2
+        x: 3830
+        y: 1152
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_10
+      rect:
+        serializedVersion: 2
+        x: 3812
+        y: 1115
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: AUGGIE-Step2_11
+      rect:
+        serializedVersion: 2
+        x: 4980
+        y: 957
+        width: 10
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

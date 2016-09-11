@@ -5,8 +5,11 @@ public class GameStateScript : MonoBehaviour {
 	public float lengthOfSafety; // How long to wait after an interaction until another interaction can happen
 	private float timer;
 
+	public int arcState = 0;
+
 	private string gameState;
 	private string interlocutor;
+
 
 	// Use this for initialization
 	void Start () {
@@ -46,5 +49,13 @@ public class GameStateScript : MonoBehaviour {
 
 	public string GetInterlocutor() {
 		return interlocutor;
+	}
+
+	public int GetArcState() {
+		return arcState;
+	}
+
+	public void IncrementArc() {
+		arcState++;
 	}
 }

@@ -9,6 +9,9 @@ using System.Collections;
 // modified from there.
 
 public class DialogueTest : MonoBehaviour {
+	public Texture portrait;
+
+	protected AudioSource selectSound;
 	protected DisplayDialogueScript conversation;
 	protected bool initiated;
 
@@ -17,23 +20,39 @@ public class DialogueTest : MonoBehaviour {
 	protected delegate void DecisionDelegate (int choice);
 	protected DecisionDelegate Current;
 
+	// If monologue there will be no choices, only "..."
+	protected bool monologue;
+
 	// Use this for initialization
 	protected void Initialize () {
 		GameObject go = GameObject.Find("UIObject");
+		monologue = false;
 		conversation = (DisplayDialogueScript) go.GetComponent(typeof(DisplayDialogueScript));
+		conversation.SetPortrait (portrait);
+		selectSound = GetComponent<AudioSource> ();
 		initiated = true;
 	}
+	
 
 	// This function returns what choice the player chooses
 	protected int GetChoice () {
 		// Player must hold down direction and press fire key to choose
-		if (Input.GetButton ("Fire1")) {
-			if (Input.GetAxis ("Horizontal") < -0.1f) {
-				return 1;
-			} else if (Input.GetAxis ("Horizontal") > 0.1f) {
-				return 2;
-			} else if (Input.GetAxis ("Vertical") < -0.1f) {
-				return 3;
+		if (!monologue) {
+			if (Input.GetButtonDown ("Fire1")) {
+				selectSound.Play();
+
+				if (Input.GetAxis ("Horizontal") < -0.1f) {
+					return 1;
+				} else if (Input.GetAxis ("Horizontal") > 0.1f) {
+					return 2;
+				} else if (Input.GetAxis ("Vertical") < -0.1f) {
+					return 3;
+				}
+			}
+		} else {
+			if (Input.GetButtonDown ("Fire1")) {
+				selectSound.Play();
+				return 1; // Assume for monologues there is only one choice, choice 1
 			}
 		}
 		return 0;
