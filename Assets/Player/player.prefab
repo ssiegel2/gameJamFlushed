@@ -12,6 +12,9 @@ GameObject:
   - 114: {fileID: 11436998}
   - 50: {fileID: 5000340}
   - 61: {fileID: 6124420}
+  - 95: {fileID: 9563416}
+  - 114: {fileID: 11458512}
+  - 114: {fileID: 11405268}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -26,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 124188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.119999997, y: -.949999988, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.850000024, y: .0799999982, z: 5}
+  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,9 +60,37 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -5}
   serializedVersion: 2
-  m_Size: {x: .319999993, y: .959999979}
+  m_Size: {x: 8, y: 5}
+--- !u!95 &9563416
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ae1e420f7da44e49823019a6229c9ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11405268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a7b9ed0f8254b43b28fd6f50515b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11436998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,10 +102,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6824c5c92f36e74eadaf121db9175a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmount: 50
-  maxSpeed: 4.5
-  friction: 19
-  movingFriction: 6
+  moveAmount: 58
+  maxSpeed: 4.0999999
+  friction: 35
+  movingFriction: 26
+--- !u!114 &11458512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abdfff29a86ff415e9de46a65975a642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21293656
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc5fa47732c15ff43b6ab9dba6f254f3, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 782157c52ccc0444d8d02fc72cff4c8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

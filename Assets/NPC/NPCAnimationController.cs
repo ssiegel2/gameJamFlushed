@@ -1,32 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimationLogic : MonoBehaviour {
+public class NPCAnimationController : MonoBehaviour {
 	float direction;
 	bool move;
-
+	Vector2 prevPosition;
+	
 	Animator animator;
-
+	
 	// Use this for initialization
 	void Start () {
 		direction = 0;
 		move = false;
+		prevPosition = new Vector2 (transform.position.x, transform.position.y);
 		animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0) {
-			move = true;
-			direction = Mathf.Rad2Deg * Mathf.Atan2 (Input.GetAxis ("Vertical"), Input.GetAxis ("Horizontal"));
-
-			if (direction < 0) { // Ensure direction is positive
+		Vector2 diff = new Vector2 (transform.position.x - prevPosition.x,
+		                            transform.position.y - prevPosition.y);
+		if (diff.magnitude != 0) {
+			direction = Mathf.Atan2 (diff.y, diff.x);
+			direction *= Mathf.Rad2Deg;
+			if (direction < 0) {
 				direction += 360;
 			}
+			move = true;
+			prevPosition = new Vector2 (transform.position.x, transform.position.y);
 		} else {
 			move = false;
 		}
-
+		
+		Debug.Log (diff);
 
 		if (direction > 22.5 && direction < 67.5) {
 			if(move) {
