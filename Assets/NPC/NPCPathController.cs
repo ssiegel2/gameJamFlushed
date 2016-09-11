@@ -13,6 +13,8 @@ public class NPCPathController : MonoBehaviour {
 
     float startTime;
 
+	GameStateScript gameState;
+
 	// Use this for initialization
 	void Start () {
         float rad = pathDirection * Mathf.Deg2Rad;
@@ -22,14 +24,18 @@ public class NPCPathController : MonoBehaviour {
         endPos = new Vector2(transform.position.x - rotationX, transform.position.y - rotationY);
         transform.position = startPos;
         startTime = Time.time;
+
+		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
     }
 	
 	// Update is called once per frame
 	void Update () {
         //lerps the npc back and forth
-        float distCovered = Mathf.PingPong((Time.time - startTime) * moveSpeed, 1);
-        float fracJourney = (distCovered / travelDist*2);
-        transform.position = Vector2.Lerp(startPos, endPos, fracJourney);
+		if (gameState.CurrentState () == "Overworld") {
+			float distCovered = Mathf.PingPong ((Time.time - startTime) * moveSpeed, 1);
+			float fracJourney = (distCovered / travelDist * 2);
+			transform.position = Vector2.Lerp (startPos, endPos, fracJourney);
+		}
 
 
 	}

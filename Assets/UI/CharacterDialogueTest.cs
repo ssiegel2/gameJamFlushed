@@ -5,6 +5,8 @@ public class CharacterDialogueTest : DialogueTest {
 
 	GameStateScript gameState;
 
+	string characterName;
+
 	void Decision1(int choice) {
 		if (choice == -1) {
 			conversation.NewChoice ("How are you? How are you? How are you? How are you? How are you?\n How are you? How are you? How are you?", "I'm great!", "I'm ok", "Oh Christ");
@@ -43,14 +45,18 @@ public class CharacterDialogueTest : DialogueTest {
 	void Start () {
 		//initiated = false;
 		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
+		characterName = GetComponent<DialogueTransitionScript> ().characterName;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (gameState.CurrentState () == "Dialogue" && initiated != true) {
-			Initialize ();
-			Current = Decision1;
-			Current (-1);
+			if (gameState.GetInterlocutor() == characterName) {
+				// Logic can be added here for which dialogue tree to start from
+				Initialize ();
+				Current = Decision1;
+				Current (-1);
+			}
 		}
 		if (gameState.CurrentState () == "Overworld" && initiated == true) {
 			initiated = false;

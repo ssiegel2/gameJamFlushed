@@ -3,7 +3,9 @@ using System.Collections;
 
 public class DialogueTransitionScript : MonoBehaviour {
 
-	public BoxCollider2D player;
+	public string characterName;
+
+	BoxCollider2D player;
 	
 	BoxCollider2D thisCollider;
 	GameStateScript gameState;
@@ -13,6 +15,7 @@ public class DialogueTransitionScript : MonoBehaviour {
 	void Start () {
 		thisCollider = GetComponent<BoxCollider2D>();
 
+		player = GameObject.Find ("player").GetComponent<BoxCollider2D> ();
 		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
 	}
 	
@@ -21,6 +24,7 @@ public class DialogueTransitionScript : MonoBehaviour {
 		if (thisCollider.IsTouching (player)) {
 			if (!gameState.Safe () ) {
 				gameState.Dialogue();
+				gameState.SetInterlocutor(characterName);
 			}
 		}
 	}
