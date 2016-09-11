@@ -103,10 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6824c5c92f36e74eadaf121db9175a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmount: 84
+  moveAmount: 79
   maxSpeed: 6.9000001
   friction: 50
-  movingFriction: 44
+  movingFriction: 43
 --- !u!114 &11458512
 MonoBehaviour:
   m_ObjectHideFlags: 1
