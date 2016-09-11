@@ -5,6 +5,7 @@ public class CameraSwitchStatesScript : MonoBehaviour {
 
 	GameStateScript gameState;
 
+
 	// Use this for initialization
 	void Start () {
 		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();

@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class AnimationLogic : MonoBehaviour {
-	float direction;
+	public float direction = 270;
 	bool move;
 
 	Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		direction = 0;
 		move = false;
 		animator = GetComponent<Animator> ();
 	}
@@ -30,51 +29,51 @@ public class AnimationLogic : MonoBehaviour {
 
 		if (direction > 22.5 && direction < 67.5) {
 			if(move) {
-				animator.Play ("Blank-TopRight");
+				animator.Play ("Auggie-TopRight");
 			} else {
-				animator.Play ("Blank-TopRightStill");
+				animator.Play ("Auggie-TopRightStill");
 			}
 		} else if (direction > 67.5 && direction < 112.5) {
 			if(move) {
-				animator.Play ("Blank-Top");
+				animator.Play ("Auggie-Top");
 			} else {
-				animator.Play ("Blank-TopStill");
+				animator.Play ("Auggie-TopStill");
 			}
 		} else if (direction > 112.5 && direction < 157.5) {
 			if(move) {
-				animator.Play ("Blank-TopLeft");
+				animator.Play ("Auggie-TopLeft");
 			} else {
-				animator.Play ("Blank-TopLeftStill");
+				animator.Play ("Auggie-TopLeftStill");
 			}
 		} else if (direction > 157.5 && direction < 202.5) {
 			if(move) {
-				animator.Play ("Blank-Left");
+				animator.Play ("Auggie-Left");
 			} else {
-				animator.Play ("Blank-LeftStill");
+				animator.Play ("Auggie-LeftStill");
 			}
 		} else if (direction > 202.5 && direction < 247.5) {
 			if(move) {
-				animator.Play ("Blank-BottomLeft");
+				animator.Play ("Auggie-BottomLeft");
 			} else {
-				animator.Play ("Blank-BottomLeftStill");
+				animator.Play ("Auggie-BottomLeftStill");
 			}
 		} else if (direction > 247.5 && direction < 292.5) {
 			if(move) {
-				animator.Play ("Blank-Bottom");
+				animator.Play ("Auggie-Bottom");
 			} else {
-				animator.Play ("Blank-BottomStill");
+				animator.Play ("Auggie-BottomStill");
 			}
 		} else if (direction > 292.5 && direction < 337.5) {
 			if(move) {
-				animator.Play ("Blank-BottomRight");
+				animator.Play ("Auggie-BottomRight");
 			} else {
-				animator.Play ("Blank-BottomRightStill");
+				animator.Play ("Auggie-BottomRightStill");
 			}
 		} else if (direction > 337.5 || direction < 22.5) {
 			if(move) {
-				animator.Play ("Blank-Right");
+				animator.Play ("Auggie-Right");
 			} else {
-				animator.Play ("Blank-RightStill");
+				animator.Play ("Auggie-RightStill");
 			}
 		}
 	}

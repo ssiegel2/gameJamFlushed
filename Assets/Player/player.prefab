@@ -73,7 +73,7 @@ Animator:
   m_GameObject: {fileID: 124188}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1ae1e420f7da44e49823019a6229c9ef, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4810fd4e124af4537872e9082bc83491, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a7b9ed0f8254b43b28fd6f50515b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 270
 --- !u!114 &11436998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,7 +155,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 782157c52ccc0444d8d02fc72cff4c8a, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 9a2d02265b1004b4ba8cd082c1454a9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -162,7 +163,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 9a2d02265b1004b4ba8cd082c1454a9e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 124188}
