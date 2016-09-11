@@ -10,7 +10,6 @@ using System.Collections;
 
 public class DialogueTest : MonoBehaviour {
 	protected DisplayDialogueScript conversation;
-	protected bool initiated;
 
 	// Inputting -1 into choice initializes the decision; 1, 2, 3 cause
 	// the proper response to the choice
@@ -21,7 +20,6 @@ public class DialogueTest : MonoBehaviour {
 	protected void Initialize () {
 		GameObject go = GameObject.Find("UIObject");
 		conversation = (DisplayDialogueScript) go.GetComponent(typeof(DisplayDialogueScript));
-		initiated = true;
 	}
 
 	// This function returns what choice the player chooses
@@ -42,11 +40,8 @@ public class DialogueTest : MonoBehaviour {
 	// Update is called once per frame
 	// Sends input to Current decision
 	void Update () {
-		if (initiated) {
-			Current (GetChoice ());
-		}
-
-
+		Debug.Log (Current);
+		Current (GetChoice ());
 	}
 
 

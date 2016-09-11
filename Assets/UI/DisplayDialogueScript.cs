@@ -4,8 +4,6 @@ using System.Collections;
 public class DisplayDialogueScript : MonoBehaviour {
 	public GUIStyle textStyle;
 
-	GameStateScript gameState;
-
 	private class DialogueClass {
 		public string text;
 		public Rect rect;
@@ -63,7 +61,6 @@ public class DisplayDialogueScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
 	}
 	
 	// Update is called once per frame
@@ -81,11 +78,9 @@ public class DisplayDialogueScript : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if (gameState.CurrentState () == "Dialogue") {
-			GUI.Label (dialogue.rect, dialogue.text, textStyle);
-			GUI.Label (choice1.rect, choice1.text, textStyle);
-			GUI.Label (choice2.rect, choice2.text, textStyle);
-			GUI.Label (choice3.rect, choice3.text, textStyle);
-		}
+		GUI.Label (dialogue.rect, dialogue.text, textStyle);
+		GUI.Label (choice1.rect, choice1.text, textStyle);
+		GUI.Label (choice2.rect, choice2.text, textStyle);
+		GUI.Label (choice3.rect, choice3.text, textStyle);
 	}
 }
