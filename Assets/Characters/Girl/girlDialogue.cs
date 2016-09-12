@@ -8,13 +8,83 @@ public class girlDialogue : DialogueTest {
 	
 	void Health1(int choice) {
 		if (choice == -1) {
-			conversation.NewChoice ("How are you? How are you? How are you? How are you? How are you?\n How are you? How are you? How are you?",
-			                        "Bye",
-			                        "BYE!!!",
-			                        "");
+			monologue = true;
+			conversation.NewMonologue("Hey there uncle Auggie!");
 		} else if (choice == 1) {
-			gameState.Overworld ();
-		} else if (choice == 2) {
+			Current = Health2;
+			Current(-1);
+		}
+	}
+	void Health2(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("I've been worried about you lately.");
+		} else if (choice == 1) {
+			Current = Health3;
+			Current(-1);
+		}
+	}
+	void Health3(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("In fact, all of us are worried about you.");
+		} else if (choice == 1) {
+			Current = Health4;
+			Current(-1);
+		}
+	}
+	void Health4(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("You're sickness keeps getting worse and worse and there's nothing I can do.");
+		} else if (choice == 1) {
+			Current = Health5;
+			Current(-1);
+		}
+	}
+	void Health5(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("But it is ok now.\nI am even excited!");
+		} else if (choice == 1) {
+			Current = Health6;
+			Current(-1);
+		}
+	}
+	void Health6(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("Now that the world famous Dr. Van Oinkenstein has promised to help you\nI'm sure you'll be OK!");
+		} else if (choice == 1) {
+			Current = Health7;
+			Current(-1);
+		}
+	}
+	void Health7(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("Your appointment with him is about now, isn't it?");
+		} else if (choice == 1) {
+			Current = Health8;
+			Current(-1);
+		}
+	}
+	void Health8(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("Why don't you go to the hospital?");
+		} else if (choice == 1) {
+			Current = Health9;
+			Current(-1);
+		}
+	}
+	void Health9(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue("I'll be waiting here for you when you get back.");
+		} else if (choice == 1) {
+			gameState.IncrementArc();
+			gameState.Overworld();
+		}
+	}
+
+	void Silence(int choice) {
+		if (choice == -1) {
+			monologue = true;
+			conversation.NewMonologue ("");
+		} else if (choice == 1) {
 			gameState.Overworld ();
 		}
 	}
@@ -34,8 +104,14 @@ public class girlDialogue : DialogueTest {
 			if (gameState.GetInterlocutor() == characterName) {
 				// Logic can be added here for which dialogue tree to start from
 				Initialize ();
-				Current = Health1;
-				Current (-1);
+
+				if (gameState.GetArcState() == 1) {
+					Current = Health1;
+					Current (-1);
+				} else {
+					Current = Silence;
+					Current(-1);
+				}
 			}
 		}
 		if (gameState.CurrentState () == "Overworld" && initiated == true) {

@@ -164,7 +164,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 471328, guid: a1c72cada517e408e84643b8948b70fd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.4397459
+      value: -11.8000002
       objectReference: {fileID: 0}
     - target: {fileID: 471328, guid: a1c72cada517e408e84643b8948b70fd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -197,6 +197,10 @@ Prefab:
     - target: {fileID: 471328, guid: a1c72cada517e408e84643b8948b70fd, type: 2}
       propertyPath: m_LocalScale.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 471328, guid: a1c72cada517e408e84643b8948b70fd, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.00323153
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1c72cada517e408e84643b8948b70fd, type: 2}
@@ -358,6 +362,10 @@ Prefab:
     - target: {fileID: 408738, guid: f5aafff3889fb43f3bc8c8b1cfa29096, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477240, guid: f5aafff3889fb43f3bc8c8b1cfa29096, type: 2}
+      propertyPath: sceneName
+      value: Town
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5aafff3889fb43f3bc8c8b1cfa29096, type: 2}
@@ -545,7 +553,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462808, guid: 69d5b0a873b814a419157b14fbaf1c74, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11423060, guid: 69d5b0a873b814a419157b14fbaf1c74, type: 2}
