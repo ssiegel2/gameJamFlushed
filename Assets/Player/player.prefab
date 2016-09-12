@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11458512}
   - 114: {fileID: 11405268}
   - 114: {fileID: 11488462}
+  - 114: {fileID: 11454776}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -108,6 +109,18 @@ MonoBehaviour:
   maxSpeed: 6.9000001
   friction: 50
   movingFriction: 43
+--- !u!114 &11454776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa07de4ae17a74a53a2b3bf592200bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunLength: 1
 --- !u!114 &11458512
 MonoBehaviour:
   m_ObjectHideFlags: 1

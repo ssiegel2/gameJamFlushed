@@ -12,6 +12,7 @@ public class NPCFollowController : MonoBehaviour {
     Rigidbody2D rigidBody;
     CircleCollider2D circle;
 	GameStateScript gameState;
+	TouchAndHalt halt;
 
 	// Use this for initialization
 	void Start () {
@@ -22,13 +23,14 @@ public class NPCFollowController : MonoBehaviour {
         circle.radius = sightRadius;
 
 		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
+		halt = GetComponent<TouchAndHalt> ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //npc follows player if in range
-        if (followingPlayer && !gameState.Safe () && gameState.CurrentState () == "Overworld") {
+        if (followingPlayer && !gameState.Safe () && gameState.CurrentState () == "Overworld" && !halt.isHalted()) {
             float step = moveSpeed * Time.deltaTime;
             Vector2 moveToPlayer = Vector2.MoveTowards(transform.position, player.transform.position, step);
             transform.position = moveToPlayer;

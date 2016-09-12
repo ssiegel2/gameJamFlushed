@@ -626,7 +626,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 11434816, guid: 88dd39fece5d340b2ab38a22f52f0d47, type: 2}
+    - target: {fileID: 0}
       propertyPath: player
       value: 
       objectReference: {fileID: 738240751}
@@ -634,7 +634,7 @@ Prefab:
       propertyPath: m_Name
       value: ChaseNPC (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 11445008, guid: 88dd39fece5d340b2ab38a22f52f0d47, type: 2}
+    - target: {fileID: 0}
       propertyPath: characterName
       value: Steve
       objectReference: {fileID: 0}
@@ -642,7 +642,12 @@ Prefab:
       propertyPath: moveSpeed
       value: 3.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 168984, guid: 88dd39fece5d340b2ab38a22f52f0d47, type: 2}
+      propertyPath: m_TagString
+      value: Stunner
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 88dd39fece5d340b2ab38a22f52f0d47, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &738240747 stripped
@@ -676,7 +681,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 921333730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ace5a0c24e135cd49aecca04597c52fd, type: 3}
   m_Name: 
@@ -687,7 +692,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 921333730}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -1643,7 +1648,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 11472826, guid: b6c7533de835643a584cd6504e913ffc, type: 2}
+    - target: {fileID: 0}
       propertyPath: player
       value: 
       objectReference: {fileID: 738240751}
@@ -1740,6 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lengthOfSafety: 2
+  arcState: 0
 --- !u!4 &2022734277 stripped
 Transform:
   m_PrefabParentObject: {fileID: 475590, guid: b6c7533de835643a584cd6504e913ffc, type: 2}

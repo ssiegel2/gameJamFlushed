@@ -8,10 +8,17 @@ public class PlayerController : MonoBehaviour {
     public float friction = 5f;
 	public float movingFriction = 5f;
 
+	bool stunned;
+
+	StunScript playerStun;
+
     Rigidbody2D rigidBody;
 	// Use this for initialization
 	void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
+		playerStun = GetComponent<StunScript> ();
+
+		stunned = false;
 	}
 	
     void FixedUpdate(){
@@ -21,14 +28,21 @@ public class PlayerController : MonoBehaviour {
 
 		Vector2 acceleration = new Vector2 (hMove, vMove).normalized * moveAmount;
 
-        if (!noMove) {
+        if (!noMove && !playerStun.isStunned()) {
             rigidBody.AddForce(acceleration);
             rigidBody.velocity = new Vector2(Mathf.Clamp(rigidBody.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rigidBody.velocity.y, -maxSpeed, maxSpeed));
 			rigidBody.AddForce(-rigidBody.velocity.normalized * movingFriction);
         }
-        else{
+        else {
             rigidBody.AddForce(-rigidBody.velocity.normalized * friction);
         }
+
+		if (playerStun.isStunned () == true && stunned == false) {
+			rigidBody.velocity *= -1;
+			stunned = true;
+		} else if (playerStun.isStunned () == false && stunned == true) {
+			stunned = false;
+		}
     }
 
 

@@ -31,8 +31,7 @@ public class NPCAnimationController : MonoBehaviour {
 		} else {
 			move = false;
 		}
-		
-		Debug.Log (diff);
+
 
 		if (direction > 22.5 && direction < 67.5) {
 			if(move) {
