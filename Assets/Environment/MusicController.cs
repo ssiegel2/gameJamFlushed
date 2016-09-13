@@ -6,6 +6,7 @@ public class MusicController : MonoBehaviour {
 
     GameStateScript gameState;
     AudioSource gameMusic;
+    string currentState;
 
     Dictionary<string, AudioClip> music;
 
@@ -18,26 +19,34 @@ public class MusicController : MonoBehaviour {
         music.Add("FlushedTestSong1", Resources.Load("FlushedTestSong1") as AudioClip);
         music.Add("FlushedTestSong2", Resources.Load("FlushedTestSong2") as AudioClip);
 
-        Debug.Log(Resources.Load("FlushedTestSong1"));
+        currentState = gameState.CurrentState();
+
+        PlayMusic(currentState);
+        
+        //Debug.Log(Resources.Load("FlushedTestSong1"));
 
         
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if(currentState != gameState.CurrentState()) {
+            currentState = gameState.CurrentState();
+            PlayMusic(currentState);
+        }
+    }
 
-        Debug.Log(music["FlushedTestSong1"]);
-
-        switch (gameState.CurrentState())
+    void PlayMusic(string currentState) {
+        switch (currentState)
         {
-            case "Overworld":
+            case "Dialogue":
                 gameMusic.clip = music["FlushedTestSong1"];
                 break;
-            case "Dialogue":
+            case "Overworld":
                 gameMusic.clip = music["FlushedTestSong2"];
                 break;
         }
-        Debug.Log(gameMusic.clip);
+        //Debug.Log(gameMusic.clip);
         gameMusic.Play();
     }
 }
