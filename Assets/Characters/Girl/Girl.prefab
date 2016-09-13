@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fb361f41b214bbd8964545195b344a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxYMagnitude: 15
+  maxYMagnitude: 40
 --- !u!212 &21267362
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -193,6 +193,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 7a9bcdd76b87f4def81ebc458f01c279, type: 3}
+    - target: {fileID: 0}
+      propertyPath: maxYMagnitude
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 163538}

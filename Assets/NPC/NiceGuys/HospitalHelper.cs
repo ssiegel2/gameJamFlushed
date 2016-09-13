@@ -1,20 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dialogueTemplate : DialogueTest {
+public class HospitalHelper : DialogueTest {
 	GameStateScript gameState;
 	
 	string characterName;
 	
-	void Decision1(int choice) {
+	void Hello1(int choice) {
 		if (choice == -1) {
 			monologue = true;
-			conversation.NewMonologue (" ");
+			conversation.NewMonologue ("How's it going Auggie!");
 		} else if (choice == 1) {
-			gameState.Overworld ();
+			Current = Hello2;
+			Current(-1);
+		}
+	}
+	void Hello2(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue ("It's a little early for your appointment, don't you think?");
+		} else if (choice == 1) {
+			Current = Hello3;
+			Current(-1);
+		}
+	}
+	void Hello3(int choice) {
+		if (choice == -1) {
+			conversation.NewMonologue ("Why don't you go kill a little time somewhere else?");
+		} else if (choice == 1) {
+			gameState.Overworld();
 		}
 	}
 
+	void Appointment1(int choice) {
+		if (choice == -1) {
+			monologue = true;
+			conversation.NewMonologue ("It's time for your appointment now\nStep right in!");
+		} else if (choice == 1) {
+			gameState.Overworld();
+		}
+	}
+
+	
 	void Silence(int choice) {
 		if (choice == -1) {
 			monologue = true;
@@ -39,12 +65,16 @@ public class dialogueTemplate : DialogueTest {
 			if (gameState.GetInterlocutor() == characterName) {
 				// Logic can be added here for which dialogue tree to start from
 				Initialize ();
-
+				
 				/* LOGIC GOES HERE! FOR NOW: GO TO THE ONLY DECISION */
-
-
-				Current = Decision1;
-				Current (-1);
+				
+				if (gameState.GetArcState() == 1) {
+					Current = Hello1;
+					Current (-1);
+				} else if (gameState.GetArcState() == 2) {
+					Current = Appointment1;
+					Current(-1);
+				}
 			}
 		}
 		if (gameState.CurrentState () == "Overworld" && initiated == true) {
