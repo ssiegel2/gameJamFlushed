@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed = 5f;
     public float friction = 5f;
 	public float movingFriction = 5f;
+	public float stunPower = 4;
 
 	bool stunned;
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 
 		Vector2 acceleration = new Vector2 (hMove, vMove).normalized * moveAmount;
 
-        if (!noMove && !playerStun.isStunned()) {
+        if (!noMove) {
             rigidBody.AddForce(acceleration);
             rigidBody.velocity = new Vector2(Mathf.Clamp(rigidBody.velocity.x, -maxSpeed, maxSpeed), Mathf.Clamp(rigidBody.velocity.y, -maxSpeed, maxSpeed));
 			rigidBody.AddForce(-rigidBody.velocity.normalized * movingFriction);
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour {
         }
 
 		if (playerStun.isStunned () == true && stunned == false) {
-			rigidBody.velocity *= -1;
+			rigidBody.velocity = playerStun.StunVector() * stunPower;
 			stunned = true;
 		} else if (playerStun.isStunned () == false && stunned == true) {
 			stunned = false;

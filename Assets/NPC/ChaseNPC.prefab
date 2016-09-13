@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7beefb3201c5643419eeb19aa6329ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.4000001
+  moveSpeed: 4.0999999
   sightRadius: 30
 --- !u!114 &11498674
 MonoBehaviour:
@@ -194,7 +194,7 @@ Prefab:
       objectReference: {fileID: 6124420, guid: 16f328a11f62a43cbb9b41f0904bca8d, type: 2}
     - target: {fileID: 0}
       propertyPath: moveSpeed
-      value: 3.4000001
+      value: 4.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z

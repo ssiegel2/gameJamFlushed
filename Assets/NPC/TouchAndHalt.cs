@@ -9,6 +9,8 @@ public class TouchAndHalt : MonoBehaviour {
 	public float haltLength = 2.5f;
 	private float timer;
 
+	Vector2 prevPosition;
+
 	StunScript playerStun;
 	
 	// Use this for initialization
@@ -20,13 +22,19 @@ public class TouchAndHalt : MonoBehaviour {
 		player = GameObject.Find ("player").GetComponent<BoxCollider2D> ();
 
 		timer = 0;
+
+		prevPosition = new Vector2 (transform.position.x, transform.position.y);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		Vector2 direction = new Vector2 (transform.position.x - prevPosition.x,
+		                                 transform.position.y - prevPosition.y);
+
+
 		if (thisCollider.IsTouching (player)) {
 			timer = haltLength;
-			playerStun.Stun ();
+			playerStun.Stun (direction);
 		}
 
 		if (timer > 0) {
