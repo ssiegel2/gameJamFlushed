@@ -51,8 +51,13 @@ public class DialogueTest : MonoBehaviour {
 			}
 		} else {
 			if (Input.GetButtonDown ("Fire1")) {
-				selectSound.Play();
-				return 1; // Assume for monologues there is only one choice, choice 1
+				if (conversation.isFinished ()) {
+					selectSound.Play();
+					return 1; // Assume for monologues there is only one choice, choice 1
+				} else {
+					conversation.FinishNow();
+					return 0;
+				}
 			}
 		}
 		return 0;

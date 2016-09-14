@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class MusicController : MonoBehaviour {
 
+	public bool PlayOverworldMusic = true;
+
     GameStateScript gameState;
     AudioSource gameMusic;
     string currentState;
@@ -19,7 +21,7 @@ public class MusicController : MonoBehaviour {
         music.Add("FlushedTestSong1", Resources.Load("FlushedTestSong1") as AudioClip);
         music.Add("FlushedTestSong2", Resources.Load("FlushedTestSong2") as AudioClip);
 
-        currentState = gameState.CurrentState();
+        currentState = gameState.GetMusicState();
 
         PlayMusic(currentState);
         
@@ -30,8 +32,8 @@ public class MusicController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(currentState != gameState.CurrentState()) {
-            currentState = gameState.CurrentState();
+        if(currentState != gameState.GetMusicState()) {
+            currentState = gameState.GetMusicState();
             PlayMusic(currentState);
         }
     }
@@ -45,8 +47,16 @@ public class MusicController : MonoBehaviour {
             case "Overworld":
                 gameMusic.clip = music["FlushedTestSong2"];
                 break;
+			case "None":
+				gameMusic.Stop ();
+				break;
+			/* Siren here */
         }
         //Debug.Log(gameMusic.clip);
-        gameMusic.Play();
+		if (PlayOverworldMusic == false && gameState.CurrentState() == "Overworld") {
+			gameMusic.Stop ();
+		} else {
+			gameMusic.Play ();
+		}
     }
 }

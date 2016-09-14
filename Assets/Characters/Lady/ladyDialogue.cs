@@ -74,6 +74,7 @@ public class ladyDialogue : DialogueTest {
 			if (gameState.GetInterlocutor() == characterName) {
 				// Logic can be added here for which dialogue tree to start from
 				Initialize ();
+				gameState.SetMusicState ("Dialogue");
 
 				if (gameState.GetArcState() == 2) {
 					Current = Reprimand1;

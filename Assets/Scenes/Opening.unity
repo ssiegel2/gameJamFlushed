@@ -124,6 +124,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11466694, guid: 21a6c12dd649443aa945d0bba855648f, type: 2}
+      propertyPath: arcState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8276702, guid: 21a6c12dd649443aa945d0bba855648f, type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466694, guid: 21a6c12dd649443aa945d0bba855648f, type: 2}
+      propertyPath: startingMusic
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21a6c12dd649443aa945d0bba855648f, type: 2}
   m_IsPrefabParent: 0
@@ -321,6 +333,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8239800, guid: 85191440988f24a068d4217e11a854a6, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a9bcdd76b87f4def81ebc458f01c279, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85191440988f24a068d4217e11a854a6, type: 2}
   m_IsPrefabParent: 0
@@ -628,6 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace5a0c24e135cd49aecca04597c52fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayOverworldMusic: 1
 --- !u!82 &2082126614
 AudioSource:
   m_ObjectHideFlags: 0
@@ -638,8 +655,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 0
   Mute: 0

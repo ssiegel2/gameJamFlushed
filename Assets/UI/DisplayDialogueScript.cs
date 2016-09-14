@@ -6,6 +6,15 @@ public class DisplayDialogueScript : MonoBehaviour {
 
 	GameStateScript gameState;
 
+	bool newDialogue;
+	bool finished;
+	int dialogueIndex;
+	float dialogueTimer;
+	string displayText;
+
+	public float dialogueSpeed = .9f;
+
+
 
 	private class DialogueClass {
 		public string text;
@@ -70,16 +79,47 @@ public class DisplayDialogueScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameState = GameObject.Find ("GameState").GetComponent<GameStateScript> ();
+		newDialogue = false;
+		finished = false;
+		dialogueIndex = 0;
+		dialogueTimer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (finished == false && newDialogue == true) {
+			if (dialogueTimer <= 0) {
+				dialogueTimer = 1;
+				if (dialogueIndex < dialogue.text.Length) {
+					displayText += dialogue.text[dialogueIndex];
+					/* Play boop sound effect */
+					AudioSource audio = GetComponent<AudioSource>();
+					if (dialogue.text[dialogueIndex] != ' ' && dialogue.text[dialogueIndex] != '\n') {
+						audio.Play();
+					}
+					dialogueIndex++;
+				} else {
+					finished = true;
+					newDialogue = false;
+					dialogueIndex = 0;
+				}
+			} else {
+				// Decrement timer
+				dialogueTimer -= Time.deltaTime * dialogueSpeed;
+			}
+		}
+		else {
+			displayText = dialogue.text;
+		}
 	}
 
 
 	public void NewChoice (string words, string option1, string option2, string option3) {
 		dialogue = new DialogueClass (words);
 		monologue = false;
+		newDialogue = true;
+		finished = false;
+		displayText = "";
 
 		// Choice 1 and choice 2 are required. Choice 3 is optional. Max of 3 choices
 		choice1 = new ChoiceClass (option1, 1);
@@ -89,6 +129,10 @@ public class DisplayDialogueScript : MonoBehaviour {
 
 	public void NewMonologue(string words) {
 		dialogue = new DialogueClass (words);
+
+		newDialogue = true;
+		finished = false;
+		displayText = "";
 
 		monologue = true;
 	}
@@ -107,15 +151,29 @@ public class DisplayDialogueScript : MonoBehaviour {
 	void OnGUI() {
 		if (gameState.CurrentState () == "Dialogue") {
 			GUI.Label (portraitRect, portrait, textStyle);
-			GUI.Label (dialogue.rect, dialogue.text, textStyle);
+			GUI.Label (dialogue.rect, displayText, textStyle);
 			if (!monologue) {
-				GUI.Label (choice1.rect, choice1.text, textStyle);
-				GUI.Label (choice2.rect, choice2.text, textStyle);
-				GUI.Label (choice3.rect, choice3.text, textStyle);
+				if (finished) {
+					GUI.Label (choice1.rect, choice1.text, textStyle);
+					GUI.Label (choice2.rect, choice2.text, textStyle);
+					GUI.Label (choice3.rect, choice3.text, textStyle);
+				}
 			} else {
 				// Center "..." where the choices would be
-				GUI.Label (new Rect(Screen.width / 2 - 25, Screen.height * 0.75f, 50, 20), "...", textStyle);
+				if (finished) {
+					GUI.Label (new Rect(Screen.width / 2 - 25, Screen.height * 0.75f, 50, 20), "...", textStyle);
+				}
 			}
 		}
+	}
+
+	public bool isFinished() {
+		return finished;
+	}
+
+	public void FinishNow() {
+		finished = true;
+		newDialogue = false;
+		dialogueIndex = 0;
 	}
 }

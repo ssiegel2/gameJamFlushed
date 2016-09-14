@@ -17,7 +17,7 @@ public class BuddyScript : DialogueTest {
 	}
 	void Hello2(int choice) {
 		if (choice == -1) {
-			conversation.NewMonologue ("That girl you're always hanging out with was looking for you.");
+			conversation.NewMonologue ("That girl you're always hanging out with was looking for you earlier.");
 		} else if (choice == 1) {
 			gameState.Overworld();
 		}
@@ -48,6 +48,7 @@ public class BuddyScript : DialogueTest {
 			if (gameState.GetInterlocutor() == characterName) {
 				// Logic can be added here for which dialogue tree to start from
 				Initialize ();
+				gameState.SetMusicState ("Dialogue");
 				
 				/* LOGIC GOES HERE! FOR NOW: GO TO THE ONLY DECISION */
 

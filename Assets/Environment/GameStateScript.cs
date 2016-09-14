@@ -9,11 +9,15 @@ public class GameStateScript : MonoBehaviour {
 
 	private string gameState;
 	private string interlocutor;
+	private string musicState;
+
+	public string startingMusic;
 
 
 	// Use this for initialization
 	void Start () {
 		gameState = "Overworld";
+		musicState = startingMusic;
 	}
 
 	// Update is called once per frame
@@ -25,6 +29,7 @@ public class GameStateScript : MonoBehaviour {
 
 	public void Overworld() {
 		gameState = "Overworld";
+		musicState = "Overworld";
 		timer = lengthOfSafety;
 		interlocutor = "No one";
 	}
@@ -57,5 +62,11 @@ public class GameStateScript : MonoBehaviour {
 
 	public void IncrementArc() {
 		arcState++;
+	}
+	public void SetMusicState(string name) {
+		musicState = name;
+	}
+	public string GetMusicState() {
+		return musicState;
 	}
 }

@@ -31,6 +31,7 @@ public class doctorDialogue : DialogueTest {
 		} else if (choice == 1) {
 			gameState.IncrementArc();
 			gameState.Overworld();
+			gameState.SetMusicState ("None");
 		}
 	}
 
@@ -104,7 +105,7 @@ public class doctorDialogue : DialogueTest {
 			} else {
 				gameState.IncrementArc();
 			}
-			gameState.Overworld();
+			GameObject.Find ("Continue").GetComponent<FadeScript>().Fade();
 		}
 	}
 
@@ -114,6 +115,7 @@ public class doctorDialogue : DialogueTest {
 			conversation.NewMonologue ("");
 		} else if (choice == 1) {
 			gameState.Overworld ();
+			gameState.SetMusicState ("None");
 		}
 	}
 	
@@ -132,6 +134,12 @@ public class doctorDialogue : DialogueTest {
 			if (gameState.GetInterlocutor() == characterName) {
 				// Logic can be added here for which dialogue tree to start from
 				Initialize ();
+				if (gameState.GetArcState () < 2) {
+					gameState.SetMusicState ("None");
+					Debug.Log ("hello");
+				} else if (gameState.GetArcState () >= 2) {
+					gameState.SetMusicState ("Siren");
+				}
 				
 				if (gameState.GetArcState() == 0) {
 					Current = Hello1;

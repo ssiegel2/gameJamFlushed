@@ -49,7 +49,7 @@ public class girlDialogue : DialogueTest {
 	}
 	void Health6(int choice) {
 		if (choice == -1) {
-			conversation.NewMonologue("Now that the world famous Dr. Van Oinkenstein has promised to help you\nI'm sure you'll be OK!");
+			conversation.NewMonologue("Now that the world famous Dr. van Oinkenstein has promised to help you\nI'm sure you'll be OK!");
 		} else if (choice == 1) {
 			Current = Health7;
 			Current(-1);
@@ -75,8 +75,29 @@ public class girlDialogue : DialogueTest {
 		if (choice == -1) {
 			conversation.NewMonologue("I'll be waiting here for you when you get back.");
 		} else if (choice == 1) {
-			gameState.IncrementArc();
+			Current = Health10;
+			Current(-1);
+		}
+	}
+	void Health10(int choice) {
+		if (choice == -1) {
+			monologue = false;
+			conversation.NewChoice("You'll remember to come see me when you're done, right?",
+			                         "Of course!",
+			                         "Maybe?",
+			                         "");
+		} else if (choice == 1) {
+			Current = Health11;
+			Current(-1);
+		}
+	}
+	void Health11(int choice) {
+		if (choice == -1) {
+			monologue = true;
+			conversation.NewMonologue("Ok...\nWell, seeya!");
+		} else if (choice == 1) {
 			gameState.Overworld();
+			gameState.IncrementArc();
 		}
 	}
 
@@ -104,6 +125,7 @@ public class girlDialogue : DialogueTest {
 			if (gameState.GetInterlocutor() == characterName) {
 				// Logic can be added here for which dialogue tree to start from
 				Initialize ();
+				gameState.SetMusicState ("Dialogue");
 
 				if (gameState.GetArcState() == 1) {
 					Current = Health1;

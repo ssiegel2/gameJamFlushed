@@ -65,6 +65,7 @@ public class HospitalHelper : DialogueTest {
 			if (gameState.GetInterlocutor() == characterName) {
 				// Logic can be added here for which dialogue tree to start from
 				Initialize ();
+				gameState.SetMusicState ("Dialogue");
 				
 				/* LOGIC GOES HERE! FOR NOW: GO TO THE ONLY DECISION */
 				
