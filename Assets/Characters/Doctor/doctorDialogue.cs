@@ -105,7 +105,7 @@ public class doctorDialogue : DialogueTest {
 			} else {
 				gameState.IncrementArc();
 			}
-			GameObject.Find ("Continue").GetComponent<FadeScript>().Fade();
+			Application.LoadLevel("end");
 		}
 	}
 

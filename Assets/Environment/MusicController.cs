@@ -20,6 +20,7 @@ public class MusicController : MonoBehaviour {
         music = new Dictionary<string, AudioClip>();
         music.Add("FlushedTestSong1", Resources.Load("FlushedTestSong1") as AudioClip);
         music.Add("FlushedTestSong2", Resources.Load("FlushedTestSong2") as AudioClip);
+		music.Add ("Siren", Resources.Load ("siren") as AudioClip); 
 
         currentState = gameState.GetMusicState();
 
@@ -47,10 +48,13 @@ public class MusicController : MonoBehaviour {
             case "Overworld":
                 gameMusic.clip = music["FlushedTestSong2"];
                 break;
+			case "Siren":
+				gameMusic.clip = music["Siren"];
+				gameMusic.loop = false;
+				break;
 			case "None":
 				gameMusic.Stop ();
 				break;
-			/* Siren here */
         }
         //Debug.Log(gameMusic.clip);
 		if (PlayOverworldMusic == false && gameState.CurrentState() == "Overworld") {

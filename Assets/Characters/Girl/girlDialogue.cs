@@ -89,6 +89,9 @@ public class girlDialogue : DialogueTest {
 		} else if (choice == 1) {
 			Current = Health11;
 			Current(-1);
+		} else if (choice == 2) {
+			Current = Health11;
+			Current(-1);
 		}
 	}
 	void Health11(int choice) {
